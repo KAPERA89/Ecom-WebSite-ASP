@@ -1,0 +1,25 @@
+﻿@model Categorie
+
+@{
+    ViewBag.Title = Model != null ? "Edit" : "Create";
+}
+
+
+<h2>@ViewBag.Title Categorie</h2>
+
+<div asp-validation-summary="All"></div>
+
+<form asp-action=@ViewBag.Title>
+
+    <label asp-for="CategorieID" class="control-label"></label>
+    <input asp-for="CategorieID" class="form-control" readonly />
+
+    <label asp-for="CategorieName" class="control-label"></label>
+    <input asp-for="CategorieName" class="form-control" />
+
+    <br />
+    <br />
+
+    <input type="submit" value="Save" class="btn btn-primary" />
+    <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+</form>

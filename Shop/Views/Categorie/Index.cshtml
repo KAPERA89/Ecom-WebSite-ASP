@@ -1,0 +1,43 @@
+﻿@model IEnumerable<Categorie>
+
+
+<h1>Categorie View</h1>
+
+<a asp-action="Create" class="btn btn-primary">New Categorie</a>
+
+
+<table class="table">
+    <thead>
+    <th>
+        @Html.DisplayNameFor(model => model.CategorieID)
+    </th>
+    <th>
+        @Html.DisplayNameFor(model => model.CategorieName)
+    </th>
+    <th>
+        Edit
+    </th>
+    <th>
+        Delete
+    </th>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CategorieID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CategorieName)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.CategorieID })
+                </td>
+                <td>
+                    @Html.ActionLink("Delete", "Delete", new { id = item.CategorieID }, new { onclick = "return confirm('Are you sure you want to delete this categorie ? )" })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

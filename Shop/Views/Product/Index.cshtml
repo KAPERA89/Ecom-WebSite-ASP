@@ -1,0 +1,149 @@
+﻿@model IEnumerable<Product>
+
+<h1>Product View</h1>
+
+@using (Html.BeginForm("Index", "Product", FormMethod.Get))
+{
+    <label>Search Product:</label>
+    @Html.TextBox("searchItem")
+    <input type="submit" value="submit" />
+    <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+}
+
+
+
+<a asp-action="Create" class="btn btn-primary">New Product</a>
+
+<table class="table" id="myTable">
+    <thead>
+        <tr>
+            <th @*onclick="sortTable(0)" style="color:cadetblue;cursor:pointer">*@
+                @*@Html.DisplayNameFor(model => model.ProductID)*@
+
+                <a>@Html.ActionLink("ProductID", "Index", new { sortItem = ViewBag.IdSort })</a>
+            </th>
+            <th @*onclick="sortTable(0)" style="color:cadetblue;cursor:pointer">*@
+                @*@Html.DisplayNameFor(model => model.ProductName)*@
+
+                <a>@Html.ActionLink("ProductName", "Index", new { sortItem = ViewBag.NameSort })</a>
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProductImg)
+            </th>
+            <th @*onclick="sortTable(0)" style="color:cadetblue;cursor:pointer">*@
+                @*@Html.DisplayNameFor(model => model.ProductPrice)*@
+
+                <a>@Html.ActionLink("ProductPrice", "Index", new { sortItem = ViewBag.PriceSort })</a>
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProductDescription)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CategorieName)
+            </th>
+            <th>
+                Edit
+            </th>
+            <th>
+                Delete
+            </th>
+            <th>
+                Details
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProductID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProductName)
+                </td>
+                <td>
+                    <img src="~/images/@item.ProductImg" style="width:35px;height:35px" />
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProductPrice)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProductDescription)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CategorieName)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.ProductID })
+                </td>
+                <td>
+                    @Html.ActionLink("Delete", "Delete", new { id = item.ProductID },
+                    new { onclick = "return confirm('Are you sure you want to delete this Product ? )" })
+                </td>
+                <td>
+                    @Html.ActionLink("Details", "Details", new { id = item.ProductID })
+
+                </td>
+            </tr>
+            @*}*@
+
+        }
+    </tbody>
+</table>
+
+@*<script>function sortTable(n) {
+        var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
+        table = document.getElementById("myTable");
+        switching = true;
+        //Set the sorting direction to ascending:
+        dir = "asc";
+        /*Make a loop that will continue until
+        no switching has been done:*/
+        while (switching) {
+            //start by saying: no switching is done:
+            switching = false;
+            rows = table.rows;
+            /*Loop through all table rows (except the
+            first, which contains table headers):*/
+            for (i = 1; i < (rows.length - 1); i++) {
+                //start by saying there should be no switching:
+                shouldSwitch = false;
+                /*Get the two elements you want to compare,
+                one from current row and one from the next:*/
+                x = rows[i].getElementsByTagName("TD")[n];
+                y = rows[i + 1].getElementsByTagName("TD")[n];
+                /*check if the two rows should switch place,
+                based on the direction, asc or desc:*/
+                if (dir == "asc") {
+                    if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+                        //if so, mark as a switch and break the loop:
+                        shouldSwitch = true;
+                        break;
+                    }
+                } else if (dir == "desc") {
+                    if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
+                        //if so, mark as a switch and break the loop:
+                        shouldSwitch = true;
+                        break;
+                    }
+                }
+            }
+            if (shouldSwitch) {
+                /*If a switch has been marked, make the switch
+                and mark that a switch has been done:*/
+                rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+                switching = true;
+                //Each time a switch is done, increase this count by 1:
+                switchcount++;
+            } else {
+                /*If no switching has been done AND the direction is "asc",
+                set the direction to "desc" and run the while loop again.*/
+                if (switchcount == 0 && dir == "asc") {
+                    dir = "desc";
+                    switching = true;
+                }
+            }
+        }
+
+    }</script>*@

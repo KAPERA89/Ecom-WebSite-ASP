@@ -1,0 +1,38 @@
+﻿@model Product
+
+@{
+    ViewBag.Title = Model != null ? "Edit" : "Create";
+}
+
+<h2>@ViewBag.Title Product</h2>
+
+<div asp-validation-summary="All"></div>
+
+<form asp-action=@ViewBag.Title enctype="multipart/form-data">
+
+    <label asp-for="ProductID" class="control-label"></label>
+    <input asp-for="ProductID" class="form-control" readonly />
+
+    <label asp-for="ProductName" class="control-label"></label>
+    <input asp-for="ProductName" class="form-control" />
+
+    <label asp-for="ProductImg" class="control-label"></label>
+    <input type="file" asp-for="ProductImg" class="form-control" />
+
+    <label asp-for="ProductPrice" class="control-label"></label>
+    <input asp-for="ProductPrice" class="form-control" />
+
+    <label asp-for="ProductDescription" class="control-label"></label>
+    <input asp-for="ProductDescription" class="form-control" />
+
+    <label asp-for="CategorieID" class="control-label"></label>
+    <select asp-for="CategorieID" asp-items="@(new SelectList(ViewBag.Categories,"CategorieID","CategorieName"))" class="form-control">
+        <option value="">Select Categorie</option>
+    </select>
+
+    <br />
+    <br />
+
+    <input type="submit" value="Save" class="btn btn-primary" />
+    <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+</form>
