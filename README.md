@@ -6,8 +6,7 @@
 ### => Users Pages :  
 ### Index Page : 
 
-<img width="1552" alt="Capture d’écran 2023-02-22 à 21 40 01" src="https://user-images.githubusercontent.com/93727795/220764284-7e790a6e-8e30-4f1e-9eed-
-cd44ff10c754.png">
+<img width="1552" alt="Capture d’écran 2023-02-22 à 21 40 01" src="https://user-images.githubusercontent.com/93727795/220766349-0d34e062-6fb6-4c00-8cea-03891965a8ce.png">
 
 <img width="1552" alt="Capture d’écran 2023-02-22 à 21 40 22" src="https://user-images.githubusercontent.com/93727795/220765097-e582ff49-b595-4c8d-819a-cf0768128816.png">
 
@@ -33,4 +32,5 @@ cd44ff10c754.png">
 
 <img width="1552" alt="Capture d’écran 2023-02-22 à 21 41 37" src="https://user-images.githubusercontent.com/93727795/220766024-70c4aa06-f956-4b68-b57a-c74f39be8d85.png">
 
-#####NB: foreach page you can do Crud Operations (Create,update,delete,read)
+##### NB: foreach page you can do Crud Operations (Create,update,delete,read)
+  
